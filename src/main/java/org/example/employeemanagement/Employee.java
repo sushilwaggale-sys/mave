@@ -2,8 +2,6 @@ package org.example.employeemanagement;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.DecimalMin;
@@ -17,19 +15,11 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "employees")
 public class Employee {
-
-    public enum EmploymentType {
-        FULL_TIME,
-        PART_TIME,
-        CONTRACT
-    }
-
     @Id
     @NotBlank
     @Size(max = 20)
     @Column(name = "employee_id", nullable = false, length = 20)
     private String employeeId;
-
     @NotBlank
     @Size(max = 100)
     @Column(nullable = false, length = 100)
@@ -56,11 +46,6 @@ public class Employee {
     @Column(nullable = false, precision = 12, scale = 2)
     private BigDecimal salary;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(name = "employment_type", nullable = false, length = 20)
-    private EmploymentType employmentType = EmploymentType.FULL_TIME;
-
     @Column(nullable = false)
     private boolean active = true;
 
@@ -76,7 +61,6 @@ public class Employee {
         this.designation = designation;
         this.salary = salary;
         this.active = active;
-        this.employmentType = EmploymentType.FULL_TIME;
     }
 
     public String getEmployeeId() {
@@ -127,14 +111,6 @@ public class Employee {
         this.salary = salary;
     }
 
-    public EmploymentType getEmploymentType() {
-        return employmentType;
-    }
-
-    public void setEmploymentType(EmploymentType employmentType) {
-        this.employmentType = employmentType;
-    }
-
     public boolean isActive() {
         return active;
     }
@@ -142,4 +118,5 @@ public class Employee {
     public void setActive(boolean active) {
         this.active = active;
     }
+
 }
