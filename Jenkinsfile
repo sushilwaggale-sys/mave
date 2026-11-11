@@ -1,9 +1,10 @@
 pipeline{
   agent any 
   stages{
-    stage('welcome to kenkins file')
+    stage('welcome stage'){
     steps{
       echo'jenkinsfile added'
     }
   }
+}
 }
