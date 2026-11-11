@@ -3,7 +3,7 @@ pipeline {
 
     tools {
         // maven 'MAVEN_HOME'
-        maven 'MAVE_HOME' // Make sure this matches your Jenkins global tool config
+        maven 'MAVEN_HOME' // Make sure this matches your Jenkins global tool config
     }
 
     stages {
