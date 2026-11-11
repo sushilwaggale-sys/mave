@@ -28,6 +28,11 @@ pipeline{
                 junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml' // Standard JUnit report location for Maven
             }
         }
+    stage('Build Successs') {
+            steps {
+                echo "Build Successful"
+            }
+        }
 
 }
 }
