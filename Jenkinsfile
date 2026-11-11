@@ -10,5 +10,12 @@ pipeline{
       echo'jenkinsfile added'
     }
   }
+    stage('Maven Build') {
+            steps {
+                bat 'mvn install'
+                bat 'mvn clean install' // Includes test by default
+            }
+        }
+
 }
 }
