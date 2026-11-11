@@ -23,6 +23,11 @@ pipeline{
                 bat 'mvn test'
             }
         }
+    stage('Publish Test Results') {
+            steps {
+                junit allowEmptyResults: true, testResults: 'target/surefire-reports/*.xml' // Standard JUnit report location for Maven
+            }
+        }
 
 }
 }
