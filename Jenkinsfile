@@ -16,6 +16,13 @@ pipeline{
                 bat 'mvn clean install' // Includes test by default
             }
         }
+    stage('Run Tests') {
+            steps {
+                echo "Running Unit Tests"
+                // Optional: You can explicitly run 'mvn test' here
+                bat 'mvn test'
+            }
+        }
 
 }
 }
