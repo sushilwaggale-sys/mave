@@ -2,8 +2,7 @@ pipeline {
     agent any
 
     tools {
-        // maven 'MAVEN_HOME'
-        maven 'MAVEN_HOME' // Make sure this matches your Jenkins global tool config
+        maven 'MAVEN_HOME'
     }
 
     stages {
@@ -15,26 +14,25 @@ pipeline {
 
         stage('Maven Build') {
             steps {
-                bat 'mvn install'
-                bat 'mvn clean install' // Includes test by default
+                bat 'dir'
+                bat 'mvn clean install'
             }
         }
 
         stage('Run Tests') {
             steps {
                 echo "Running Unit Tests"
-                // Optional: You can explicitly run 'mvn test' here
                 bat 'mvn test'
             }
         }
 
         stage('Publish Test Results') {
             steps {
-                junit'target/surefire-reports/*.xml' // Standard JUnit report location for Maven
+                junit 'target/surefire-reports/*.xml'
             }
         }
 
-        stage('Build Successs') {
+        stage('Build Success') {
             steps {
                 echo "Build Successful"
             }
